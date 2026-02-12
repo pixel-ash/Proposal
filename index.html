@@ -59,12 +59,15 @@ box-sizing:border-box;
 
 .letter-box{
 background:white;
-padding:40px;
+padding:45px;
 border-radius:20px;
-max-width:600px;
+max-width:620px;
+line-height:1.6;
+font-size:18px;
 box-shadow:0 10px 40px rgba(0,0,0,0.2);
 animation:fade 1s ease;
 }
+
 
 @keyframes fade{
 from{opacity:0;transform:scale(.8);}
@@ -110,20 +113,26 @@ lifetime rehse?
 <p><b>Kem ke have tu officially mari che 😌❤️</b></p>
 
 <p>
-Somehow, in the middle of everything, you became my favourite person.  
-My safest place. My Raag, Taal & Bhaav.  
+Somewhere between our conversations, laughter, and the little everyday moments…  
+You quietly became my favourite person. 💫
+
+My safest place.  
+My peace in chaos.  
+My Raag, Taal & Bhaav. 🎶
 
 You make ordinary days feel special just by being in them.  
-And I don’t know what the future holds…  
-but I know I want you in all of mine.  
+And while I don’t know what the future holds, I want you in all of mine. 🥰
 
-No big dramatic promises —  
-just loyalty, care, laughter and love.  
+No grand promises. No dramatic words.  
+Just loyalty, care, endless laughter and love. 💞
 
-So thank you for choosing me… 😌❤️
+Thank you 
+For choosing me.  
+For loving me.  
+For being mine.
 </p>
 
-<h3>— Yours always,<br>Sushy</h3>
+<h3>Yours always,<br>Sushy</h3>
 
 </div>
 </div>
@@ -135,26 +144,13 @@ document.getElementById("music").play();
 },{once:true});
 
 // 😈 Moving NO button
-const noBtn = document.getElementById("no");
-
-noBtn.addEventListener("mouseover", moveNo);
-noBtn.addEventListener("click", moveNo);
-
-function moveNo(){
-    const padding = 20;
-    const btnWidth = noBtn.offsetWidth;
-    const btnHeight = noBtn.offsetHeight;
-
-    const maxX = window.innerWidth - btnWidth - padding;
-    const maxY = window.innerHeight - btnHeight - padding;
-
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
-
-    noBtn.style.position = "fixed";
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-}
+const noBtn=document.getElementById("no");
+noBtn.addEventListener("mouseover",()=>{
+const x=Math.random()*(window.innerWidth-100);
+const y=Math.random()*(window.innerHeight-50);
+noBtn.style.left=x+"px";
+noBtn.style.top=y+"px";
+});
 
 // ❤️ YES clicked
 document.getElementById("yes").onclick=()=>{
@@ -179,4 +175,5 @@ setTimeout(()=>h.remove(),6000);
 
 </body>
 </html>
+
 
