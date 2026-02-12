@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .box {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    #yes {
+        background: #ff4d6d;
+        color: white;
+    }
+
+    #no {
+        background: #ccc;
+        position: absolute;
+    }
+
+    #message {
+        font-size: 24px;
+        color: #ff2e63;
+        margin-top: 20px;
+        display: none;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1 id="question">Will you be my pasandida aurat for lifetime? ❤️</h1>
+    
+    <button id="yes">YES 😌</button>
+    <button id="no">NO 🙄</button>
+
+    <div id="message">I knew it. Smart choice. Welcome to a lifetime of my nonsense ❤️</div>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+document.getElementById("yes").addEventListener("click", () => {
+    document.getElementById("message").style.display = "block";
+    document.getElementById("question").innerText = "I like your decision making skills 😌❤️";
+});
+</script>
+
+</body>
+</html>
