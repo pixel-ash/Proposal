@@ -111,20 +111,19 @@ lifetime rehse?
 
 <p>
 Somehow, in the middle of everything, you became my favourite person.  
-My safest place. My happiest notification.  
+My safest place. My Raag, Taal & Bhaav.  
 
 You make ordinary days feel special just by being in them.  
 And I don’t know what the future holds…  
 but I know I want you in all of mine.  
 
 No big dramatic promises —  
-just loyalty, care, laughter, and a lifetime of us.  
+just loyalty, care, laughter and love.  
 
-So thank you for choosing me…  
-Now you're stuck with me forever. 😌❤️
+So thank you for choosing me… 😌❤️
 </p>
 
-<h3>— Yours always,<br>Mishy</h3>
+<h3>— Yours always,<br>Sushy</h3>
 
 </div>
 </div>
@@ -136,13 +135,26 @@ document.getElementById("music").play();
 },{once:true});
 
 // 😈 Moving NO button
-const noBtn=document.getElementById("no");
-noBtn.addEventListener("mouseover",()=>{
-const x=Math.random()*(window.innerWidth-100);
-const y=Math.random()*(window.innerHeight-50);
-noBtn.style.left=x+"px";
-noBtn.style.top=y+"px";
-});
+const noBtn = document.getElementById("no");
+
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("click", moveNo);
+
+function moveNo(){
+    const padding = 20;
+    const btnWidth = noBtn.offsetWidth;
+    const btnHeight = noBtn.offsetHeight;
+
+    const maxX = window.innerWidth - btnWidth - padding;
+    const maxY = window.innerHeight - btnHeight - padding;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.position = "fixed";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
 
 // ❤️ YES clicked
 document.getElementById("yes").onclick=()=>{
@@ -167,3 +179,4 @@ setTimeout(()=>h.remove(),6000);
 
 </body>
 </html>
+
