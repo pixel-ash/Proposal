@@ -3,86 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You ❤️</title>
+<title>For Dhrishu ❤️</title>
 
 <style>
-    body {
-        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: Arial, sans-serif;
-        overflow: hidden;
-        text-align: center;
-    }
+body{
+margin:0;
+padding:0;
+height:100vh;
+background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:'Segoe UI',sans-serif;
+overflow:hidden;
+text-align:center;
+}
 
-    .box {
-        background: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
+.box{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.2);
+position:relative;
+z-index:2;
+}
 
-    h1 {
-        font-size: 28px;
-        margin-bottom: 30px;
-    }
+h1{
+font-size:28px;
+margin-bottom:25px;
+}
 
-    button {
-        padding: 12px 25px;
-        font-size: 18px;
-        border: none;
-        border-radius: 10px;
-        margin: 10px;
-        cursor: pointer;
-        transition: 0.2s;
-    }
+button{
+padding:12px 26px;
+font-size:18px;
+border:none;
+border-radius:12px;
+margin:10px;
+cursor:pointer;
+}
 
-    #yes {
-        background: #ff4d6d;
-        color: white;
-    }
+#yes{background:#ff4d6d;color:white;}
+#no{background:#ddd;position:absolute;}
 
-    #no {
-        background: #ccc;
-        position: absolute;
-    }
+#letter{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+justify-content:center;
+align-items:center;
+padding:30px;
+box-sizing:border-box;
+}
 
-    #message {
-        font-size: 24px;
-        color: #ff2e63;
-        margin-top: 20px;
-        display: none;
-    }
+.letter-box{
+background:white;
+padding:40px;
+border-radius:20px;
+max-width:600px;
+box-shadow:0 10px 40px rgba(0,0,0,0.2);
+animation:fade 1s ease;
+}
+
+@keyframes fade{
+from{opacity:0;transform:scale(.8);}
+to{opacity:1;transform:scale(1);}
+}
+
+.heart{
+position:fixed;
+bottom:-10px;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+from{transform:translateY(0);opacity:1;}
+to{transform:translateY(-100vh);opacity:0;}
+}
 </style>
 </head>
 
 <body>
 
-<div class="box">
-    <h1 id="question">Will you be my pasandida aurat for lifetime? ❤️</h1>
-    
-    <button id="yes">YES 😌</button>
-    <button id="no">NO 🙄</button>
+<!-- 🎵 Background Music -->
+<audio id="music" loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
 
-    <div id="message">I knew it. Smart choice. Welcome to a lifetime of my nonsense ❤️</div>
+<div class="box">
+<h1>
+Hey Dhrishu… ❤️<br><br>
+Mari pasandida chokri banine<br>
+lifetime rehse?
+</h1>
+
+<button id="yes">YES 😌</button>
+<button id="no">NO 🙄</button>
+</div>
+
+<div id="letter">
+<div class="letter-box">
+
+<h2>To My Dhrishu ❤️</h2>
+<p><b>Kem ke have tu officially mari che 😌❤️</b></p>
+
+<p>
+Somehow, in the middle of everything, you became my favourite person.  
+My safest place. My happiest notification.  
+
+You make ordinary days feel special just by being in them.  
+And I don’t know what the future holds…  
+but I know I want you in all of mine.  
+
+No big dramatic promises —  
+just loyalty, care, laughter, and a lifetime of us.  
+
+So thank you for choosing me…  
+Now you're stuck with me forever. 😌❤️
+</p>
+
+<h3>— Yours always,<br>Mishy</h3>
+
+</div>
 </div>
 
 <script>
-const noBtn = document.getElementById("no");
+// 🎵 Start music after first click
+document.body.addEventListener("click",()=>{
+document.getElementById("music").play();
+},{once:true});
 
-noBtn.addEventListener("mouseover", () => {
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 50);
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+// 😈 Moving NO button
+const noBtn=document.getElementById("no");
+noBtn.addEventListener("mouseover",()=>{
+const x=Math.random()*(window.innerWidth-100);
+const y=Math.random()*(window.innerHeight-50);
+noBtn.style.left=x+"px";
+noBtn.style.top=y+"px";
 });
 
-document.getElementById("yes").addEventListener("click", () => {
-    document.getElementById("message").style.display = "block";
-    document.getElementById("question").innerText = "I like your decision making skills 😌❤️";
-});
+// ❤️ YES clicked
+document.getElementById("yes").onclick=()=>{
+document.querySelector(".box").style.display="none";
+document.getElementById("letter").style.display="flex";
+startHearts();
+};
+
+// floating hearts
+function startHearts(){
+setInterval(()=>{
+const h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(20+Math.random()*30)+"px";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},300);
+}
 </script>
 
 </body>
